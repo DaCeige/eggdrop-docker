@@ -18,6 +18,7 @@ RUN apk add --no-cache --virtual egg-deps tcl-dev wget ca-certificates make tar 
   && tar -zxvf eggdrop-1.8.4.tar.gz \
   && rm eggdrop-1.8.4.tar.gz \
   && ( cd eggdrop-1.8.4 \
+    && sed 's/#define HANDLEN 32/#define HANDLEN 9/g' src/eggdrop.h > src/eggdrop.h \
     && ./configure \
     && make config \
     && make \
